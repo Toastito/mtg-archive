@@ -1,6 +1,60 @@
+:root {
+  --color-main-dark: #1F2023;
+  --color-secondary-dark: #43454C;
+  --text-color-main-dark: #F8F9F9;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: var(--color-main-dark);
+  color: var(--text-color-main-dark);
+}
+
+.sidebar {
+  height: 100%;
+  width: 0;
+  background-color: var(--color-main-dark);
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+}
+
+
+.sidebar__nav {
+  padding: 0.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-header {
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.logo-header__logo,
+.logo-header__menu-open-icon,
+.sidebar__menu-close-icon {
+  font-size: 28px;
+}
+
+.logo-header__logo,
+.logo-header__menu-open-icon {
+  flex: 1;
+}
+
+.logo-header__menu-item {
+  justify-self: flex-start;
 }
 
 a {
