@@ -1,34 +1,4 @@
 <%- include('./partials/header') %> 
-
-<h1><%= title %></h1>
-<p>Welcome to <%= title %></p>
-
-<main class="card-display">
-  <% cardSet.cards.data.forEach(card => { %>
-    <% if ((card.layout === 'art_series' || card.layout === 'modal_dfc' || card.layout === 'transform') && card.image_status !== 'missing') {%>
-      <section>        
-        <% card.card_faces.forEach((cardFace) => { %>
-        <section>
-          <a href="<%= card.scryfall_uri %>">
-            <div class="card-container small">
-              <img src="<%= cardFace.image_uris.small %>" alt=""></p>
-            </div>
-          </a>
-          <p><%= cardFace.name %></p>
-        </section>
-        <% }); %> 
-      </section>
-    <% } else {%>
-      <section>
-        <a href="<%= card.scryfall_uri %>">
-          <div class="card-container small">
-            <img src="<%= card.image_uris ? card.image_uris.small : '' %>">
-          </div>
-        </a>
-        <p><%= card.name %></p>
-      </section>
-    <% } %> 
-  <% }) %>
-</main>
-
+<h1>Archival</h1>
+<p>Search Page</p>
 <%- include('./partials/footer') %> 
