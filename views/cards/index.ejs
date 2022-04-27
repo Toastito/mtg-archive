@@ -1,3 +1,39 @@
 <%- include('../partials/header') %>
-<h1>Card Search Index</h1>
+<main>  
+  <h1>Card Search</h1>
+  <form action="/cards/search" method="GET" class="search-form">
+    <label for="q" class="hide">Search for cards</label>
+    <input type="text" id="search-bar" name="q" placeholder="Search for cards...">
+    <button type="submit" class="hide">Find Cards</button>
+  </form>
+  <% if (cards) { %>
+    <section class="card-display">
+      <% cards.forEach(card => { %>
+        <% if ((card.layout === 'art_series' || card.layout === 'modal_dfc' || card.layout === 'transform') && card.image_status !== 'missing') {%>
+          <article class="card-display__card">
+            <div class="card-display__card__top-flip">
+              <div class="card-display__card__top-flip__inner">
+                <% card.card_faces.forEach((cardFace) => { %>
+                  <div class="card-container small">
+                    <a href="<%= card.scryfall_uri %>">
+                      <img src="<%= cardFace.image_uris.small %>" alt="<%= cardFace.name %> "></p>
+                    </a>
+                  </div>
+                <% }); %>
+              </div>
+            </div>
+          </article>
+        <% } else {%>
+          <article class="card-display__card">
+            <div class="card-container small">
+              <a href="<%= card.scryfall_uri %>">
+                <img src="<%= card.image_uris ? card.image_uris.small : '' %>">
+              </a>
+            </div>
+          </article>
+        <% } %> 
+      <% }) %>
+    </section>
+  <% } %>
+</main>
 <%- include('../partials/footer') %>
