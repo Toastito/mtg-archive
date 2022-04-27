@@ -2,6 +2,7 @@
   --color-main-dark: #1F2023;
   --color-secondary-dark: #43454C;
   --text-color-main-dark: #F8F9F9;
+  --text-color-secondary-dark: #D9DADE;
 }
 
 * {
@@ -10,10 +11,23 @@
   padding: 0;
 }
 
+button, input {
+  all: unset;
+  box-sizing: border-box;
+}
+
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: var(--color-main-dark);
   color: var(--text-color-main-dark);
+}
+
+main {
+  padding: 1rem;
+}
+
+h1 {
+  margin-bottom: 1rem;
 }
 
 .sidebar {
@@ -35,11 +49,12 @@ body {
 }
 
 .logo-header {
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
+  border-bottom: 1px solid var(--color-secondary-dark);
 }
 
 .logo-header__logo,
@@ -63,7 +78,49 @@ a {
 
 .card-display {
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  position: relative;
+}
+
+.card-display__card:nth-child(even) {
+  text-align: right;
+}
+
+.card-display__card__top-flip {
+  position: absolute;
+  margin: 0;
+  width: 146px;
+  height: 204px;
+}
+
+.card-display__card__top-flip__inner {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  transition: transform 600ms ease;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.card-display__card:nth-child(even) .card-display__card__top-flip {
+  right: 0;
+}
+
+.card-display__card__top-flip__inner .card-container {
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.card-display__card__top-flip__inner .card-container:last-child {
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+}
+
+.card-display__card__top-flip__inner:hover {
+  transform: rotateY(180deg);
 }
 
 .login {
@@ -75,4 +132,48 @@ a {
 
 .login img {
   height: 30px;
+}
+
+.search-form {
+  margin-bottom: 1rem;
+}
+
+#search-bar {
+  padding: 1rem 0 1rem 50px;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23D9DADE" viewBox="0 0 512 512"><path d="M500.3 443.7l-119.7-119.7c27.22-40.41 40.65-90.9 33.46-144.7C401.8 87.79 326.8 13.32 235.2 1.723C99.01-15.51-15.51 99.01 1.724 235.2c11.6 91.64 86.08 166.7 177.6 178.9c53.8 7.189 104.3-6.236 144.7-33.46l119.7 119.7c15.62 15.62 40.95 15.62 56.57 0C515.9 484.7 515.9 459.3 500.3 443.7zM79.1 208c0-70.58 57.42-128 128-128s128 57.42 128 128c0 70.58-57.42 128-128 128S79.1 278.6 79.1 208z"/></svg>') no-repeat left;
+  background-size: 30px;
+  background-position: 10px;
+  background-color: var(--color-secondary-dark);
+}
+
+input {
+  width: 100%;
+}
+
+form input {
+  background-color: var(--color-secondary-dark);
+  color: var(--text-color-secondary-dark);
+  cursor: text;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+}
+
+/* :-webkit-autofill,
+:-webkit-autofill:hover, 
+:-webkit-autofill:focus {
+  box-sizing: border-box;
+  box-shadow: 0 0 0px 1000px var(--color-secondary-dark) inset;
+  -webkit-text-fill-color: var(--text-color-secondary-dark);
+  -webkit-box-shadow: 0 0 0px 1000px var(--color-secondary-dark) inset;
+} */
+
+.hide {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
 }
