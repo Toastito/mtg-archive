@@ -3,6 +3,7 @@
   <head>
     <title>Archival</title>
     <link rel='stylesheet' href='/stylesheets/style.css'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://kit.fontawesome.com/5d0250ae65.js" crossorigin="anonymous"></script>
     <script src="/javascripts/script.js" defer></script>
   </head>
@@ -13,7 +14,7 @@
         <a class="sidebar"href="/cards/search">Search Cards</a>
         <a href="/decks">Browse Decks</a>
         <% if (user) { %>
-          <a href="/collection">My Collection</a>
+          <a href="/users/<%= user._id %>/collection">My Collection</a>
           <a href="/logout">Log Out</a>
         <% } else { %>
           <a href="/auth/google">Log In</a>
