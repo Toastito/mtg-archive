@@ -1,7 +1,7 @@
 const menuOpenBtn = document.querySelector('.logo-header__menu-open-icon');
 const menuCloseBtn = document.querySelector('.sidebar__menu-close-icon');
 const sideBar = document.querySelector('.sidebar');
-const body = document.querySelector('body'); 
+const body = document.querySelector('body');
 
 menuOpenBtn.addEventListener('click', (evt) => {
   console.log('Burger Clicked');
