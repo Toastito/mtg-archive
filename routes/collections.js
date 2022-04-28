@@ -28,7 +28,7 @@ router.post('/collections', async (req, res) => {
   res.redirect('/collections');
 });
 
-router.put('/collections/:id', async (req, res) => {
+router.put('/collections', async (req, res) => {
   let collection = await Collection.findOne({owner: res.locals.user.id});
   if (!collection) res.redirect('/cards/search');
   console.log(req.body);
