@@ -7,7 +7,14 @@ const collectionSchema = new Schema({
     required: true
   },
   owner: {type: Schema.Types.ObjectId, ref: 'User'},
-  cards: [{type: Schema.Types.ObjectId, ref: 'Card'}],
+  cards: [{
+    card:{type: Schema.Types.ObjectId, ref: 'Card'},
+    quantity: {
+      type: Number,
+      min: 1,
+      default: 1
+    }
+  }],
   // collectionValue: function () {
   //   this.cards.reduce((sum, card) => {
   //     sum += parseFloat(card.prices.usd || 0);
