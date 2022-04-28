@@ -22,6 +22,16 @@
                 <% }); %>
               </div>
             </div>
+            <section>
+              <p><%= card.name %> </p>
+              <p><%= card.set_name %> </p>
+              <form action="/collection?_method=PUT" method="POST" class="collection-adder">
+                <input type="text" name="cardId" value="<%= card.id %> " class="hide">
+                <label for="quantity">QTY</label>
+                <input type="number" name="quantity">
+                <button type="submit">+</button>
+              </form>
+            </section>
           </article>
         <% } else {%>
           <article class="card-display__card">
@@ -30,10 +40,31 @@
                 <img src="<%= card.image_uris ? card.image_uris.small : '' %>">
               </a>
             </div>
+            <section>
+              <p><%= card.name %> </p>
+              <p><%= card.set_name %> </p>
+              <form action="/collection?_method=PUT" method="POST" class="collection-adder">
+                <input type="text" name="cardId" value="<%= card.id %>" class="hide">
+                <label for="quantity">QTY</label>
+                <input type="number" name="quantity">
+                <button type="submit">+</button>
+              </form>
+            </section>
           </article>
         <% } %> 
       <% }) %>
     </section>
   <% } %>
 </main>
+<script>
+  const cardDisplay = document.querySelector('.card-display');
+  
+  cardDisplay.addEventListener('submit', (event) => {
+  console.log(event);
+  setTimeout(() => {
+    event.target.reset();
+    console.log('Collection Updated');
+  }, 1);
+});
+</script>
 <%- include('../partials/footer') %>
