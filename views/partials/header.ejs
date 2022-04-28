@@ -12,9 +12,9 @@
       <nav class="sidebar__nav">
         <i class="fa-solid fa-x sidebar__menu-close-icon"></i>
         <a class="sidebar"href="/cards/search">Search Cards</a>
-        <a href="/decks">Browse Decks</a>
+        <a href="/collections/all">Browse Collections</a>
         <% if (user) { %>
-          <a href="/users/<%= user._id %>/collection">My Collection</a>
+          <a href="/collections">My Collections</a>
           <a href="/logout">Log Out</a>
         <% } else { %>
           <a href="/auth/google">Log In</a>
