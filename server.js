@@ -14,7 +14,7 @@ require('./config/passport');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const cardsRouter = require('./routes/cards');
-const collectionRouter = require('./routes/collection');
+const collectionRouter = require('./routes/collections');
 
 const app = express();
 
