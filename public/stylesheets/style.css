@@ -38,7 +38,7 @@ main {
   padding: 1rem;
 }
 
-h1, h2 {
+h1, h2, .sidebar__nav a, .sidebar__menu-close-icon {
   margin-bottom: 1rem;
 }
 
@@ -53,11 +53,23 @@ h1, h2 {
   overflow-x: hidden;
 }
 
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: inherit;
+}
 
 .sidebar__nav {
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 1rem;
   display: flex;
   flex-direction: column;
+}
+
+.sidebar__nav a {
+  color: var(--text-color-main-dark);
+  font-size: 20px;
 }
 
 .logo-header {
@@ -75,7 +87,7 @@ h1, h2 {
   font-size: 28px;
 }
 
-.logo-header__logo,
+.logo-header__logo-link,
 .logo-header__menu-open-icon {
   flex: 1;
 }
@@ -101,6 +113,7 @@ h1, h2 {
 .modal-form {
   position: relative;
   background-color: var(--color-main-dark);
+  border-radius: 4px;
   margin: auto;
   padding: 1rem;
   width: 90%;
@@ -109,12 +122,12 @@ h1, h2 {
 .modal-close {
   position: absolute;
   background-color: white;
-  font-size: 20px;
-  padding: 0.75rem;
+  font-size: 16px;
+  padding: 0.5rem;
   color: var(--color-main-dark);
   border-radius: 50% 50%;
-  top: -20px;
-  right: -20px;
+  top: -15px;
+  right: -15px;
   cursor: pointer;
 }
 
