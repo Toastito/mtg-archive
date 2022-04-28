@@ -54,7 +54,7 @@
               <% if (collections) { %>
                 <form action="/collections?_method=PUT" method="POST" class="collection-adder">
                   <label for="collections">Collections</label>
-                  <select name="collections" id="">
+                  <select name="collection">
                     <% collections.forEach(collection => { %>
                       <option value="<%= collection._id %>"><%= collection.collectionName %></option>
                     <% }) %>
