@@ -11,6 +11,7 @@
     <div class="sidebar">
       <nav class="sidebar__nav">
         <i class="fa-solid fa-x sidebar__menu-close-icon"></i>
+        <a href="/">Home</a>
         <a class="sidebar"href="/cards/search">Search Cards</a>
         <a href="/collections/all">Browse Collections</a>
         <% if (user) { %>
@@ -23,6 +24,8 @@
     </div>
     <header class="logo-header">
       <i class="fa-solid fa-bars logo-header__menu-open-icon"></i>
-      <i class="fa-solid fa-bookmark logo-header__logo"></i>
+      <a class="logo-header__logo-link" href="/">
+        <i class="fa-solid fa-bookmark logo-header__logo"></i>
+      </a>
       <!-- <h1 class="logo-header__text-logo">Archival</h1> -->
     </header>
