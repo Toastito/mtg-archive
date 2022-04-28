@@ -1,0 +1,39 @@
+<%- include('../partials/header') %>
+<main>
+  <h2>Collections</h2>
+  <button id="new-collection-btn">New Collection</button>
+  <div class="modal">
+    <form action="/collections" method="POST" class="modal-form">
+      <div class="fa-solid fa-x modal-close"></div>
+      <label for="collectionName">Collection Name</label>
+      <input type="text" name="collectionName">
+      <button type="submit">Create Collection</button>
+    </form>
+  </div>
+  <section>
+    <% collections.forEach(collection => { %>
+      <article>
+        <a href="/collections/<%= collection._id %> ">
+          <p><%= collection.collectionName %> </p>
+        </a>
+      </article>
+    <% }) %>
+  </section>
+  <!-- <form action="/cards/search" method="GET">
+    <label for="q" class="hide">Search for cards</label>
+    <button type="submit">Add Cards</button>
+  </form> -->
+</main>
+<script>
+  const newCollectionBtn = document.querySelector('#new-collection-btn');
+  const modalElement = document.querySelector('.modal');
+  const modalClose = document.querySelector('.modal-close');
+  newCollectionBtn.addEventListener('click', (evt) => {
+    console.log('Modal Button Clicked')
+    modalElement.style.display = 'block';
+  });
+  modalClose.addEventListener('click', (evt) => {
+    modalElement.style.display = 'none';
+  });
+</script>
+<%- include('../partials/footer') %> 
