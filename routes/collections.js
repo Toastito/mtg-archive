@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Collection = require('../models/collection');
+const Card = require('../models/card');
 
 router.get('/collections', async (req, res) => {
   console.log(res.locals.user);
@@ -29,8 +30,14 @@ router.post('/collections', async (req, res) => {
 });
 
 router.put('/collections', async (req, res) => {
-  let collection = await Collection.findOne({owner: res.locals.user.id});
+  let collection = await Collection.findById(req.body.collection);
   if (!collection) res.redirect('/cards/search');
+  let collectionCard = await Card.findOne({'cardDetails.id': req.body.cardId});
+  collectionCard.user.push(res.locals.user.id);
+  await collectionCard.save();
+  collection.cards.push({quantity: req.body.quantity, card: collectionCard});
+  await collection.save();
+  console.log(collection);
   console.log(req.body);
   // let card = await Card.findOne({cardDetails: req.body.cardId});
   // console.log(card);
