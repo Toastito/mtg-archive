@@ -6,11 +6,12 @@ const Collection = require('../models/collection');
 router.get('/cards/search', async (req, res, next) => {
   let results = await fetch(`https://api.scryfall.com/cards/search?q=${req.query.q}`);
   results = await results.json();
+  let collections;
   if (res.locals.user) {
-    let collections = await Collection.find({owner: req.locals.user.id});
+    collections = await Collection.find({owner: res.locals.user.id});
     console.log(collections);
   }
-  res.render('cards/index', { cards: results.data });
+  res.render('cards/index', { cards: results.data, collections});
 });
 
 module.exports = router;
