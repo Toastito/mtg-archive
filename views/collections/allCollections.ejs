@@ -4,8 +4,10 @@
   <h1>Collections</h1>
   <section>
     <% collections.forEach(collection => { %>
-      <p><%= collection.collectionName %></p>
-      <p><%= collection.owner.name %></p>
+      <article class="collection-overview">
+        <a href="/collections/<%= collection._id %>"><%= collection.collectionName %></a>
+        <p><%= collection.owner.name %></p>
+      </article>
     <% }); %>
   </section>
 </main>
