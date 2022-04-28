@@ -1,0 +1,13 @@
+<%- include('../partials/header') %>
+
+<main>
+  <h1>Collections</h1>
+  <section>
+    <% collections.forEach(collection => { %>
+      <p><%= collection.collectionName %></p>
+      <p><%= collection.owner.name %></p>
+    <% }); %>
+  </section>
+</main>
+
+<%- include('../partials/footer') %> 
