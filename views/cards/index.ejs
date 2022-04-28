@@ -25,12 +25,20 @@
             <section>
               <p><%= card.name %> </p>
               <p><%= card.set_name %> </p>
-              <form action="/collection?_method=PUT" method="POST" class="collection-adder">
-                <input type="text" name="cardId" value="<%= card.id %> " class="hide">
-                <label for="quantity">QTY</label>
-                <input type="number" name="quantity">
-                <button type="submit">+</button>
-              </form>
+              <% if (collections) { %>
+                <form action="/collections?_method=PUT" method="POST" class="collection-adder">
+                  <label for="collection">Collections</label>
+                  <select name="collection" id="">
+                    <% collections.forEach(collection => { %>
+                      <option value="<%= collection._id %>"><%= collection.collectionName %> </option>
+                    <% }) %>
+                  </select>
+                  <input type="text" name="cardId" value="<%= card.id %>" class="hide">
+                  <label for="quantity">Quantity</label>
+                  <input type="number" value="1" name="quantity">
+                  <button type="submit">+</button>
+                </form>
+              <% } %>
             </section>
           </article>
         <% } else {%>
@@ -43,12 +51,20 @@
             <section>
               <p><%= card.name %> </p>
               <p><%= card.set_name %> </p>
-              <form action="/collection?_method=PUT" method="POST" class="collection-adder">
-                <input type="text" name="cardId" value="<%= card.id %>" class="hide">
-                <label for="quantity">QTY</label>
-                <input type="number" name="quantity">
-                <button type="submit">+</button>
-              </form>
+              <% if (collections) { %>
+                <form action="/collections?_method=PUT" method="POST" class="collection-adder">
+                  <label for="collections">Collections</label>
+                  <select name="collections" id="">
+                    <% collections.forEach(collection => { %>
+                      <option value="<%= collection._id %>"><%= collection.collectionName %></option>
+                    <% }) %>
+                  </select>
+                  <input type="text" name="cardId" value="<%= card.id %>" class="hide">
+                  <label for="quantity">Quantity</label>
+                  <input type="number" value="1" name="quantity">
+                  <button type="submit">+</button>
+                </form>
+              <% } %>
             </section>
           </article>
         <% } %> 
@@ -58,7 +74,7 @@
 </main>
 <script>
   const cardDisplay = document.querySelector('.card-display');
-  
+
   cardDisplay.addEventListener('submit', (event) => {
   console.log(event);
   setTimeout(() => {
