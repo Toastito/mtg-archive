@@ -9,10 +9,16 @@ router.get('/collections', async (req, res) => {
   res.render('collections/index', { collections });
 });
 
+router.get('/collections/all', async (req, res) => {
+  let collections = await Collection.find({}).populate('owner');
+  console.log(collections);
+  res.render('collections/allCollections', { collections });
+});
+
 router.get('/collections/:id', async (req, res) => {
   console.log(req.params.id);
-  let collection = await Collection.findById(req.params.id);
-  res.render('collections/show', { collection });
+  let collection = await Collection.findById(req.params.id).populate('owner');
+  res.render('collections/show', { collection }); 
 });
 
 router.post('/collections', async (req, res) => {
