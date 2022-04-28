@@ -70,6 +70,7 @@ a:visited {
 .sidebar__nav a {
   color: var(--text-color-main-dark);
   font-size: 20px;
+  white-space: nowrap;
 }
 
 .logo-header {
