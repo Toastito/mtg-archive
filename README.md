@@ -39,7 +39,11 @@ I used figma to quickly sketch up some basic views and wireframes to get a feel 
 </details>
 
 ## :computer: Technologies Used
-![JavaScript](https://img.shields.io/badge/-JavaScript-333?style=flat&logo=javascript) 
+![JavaScript](https://img.shields.io/badge/-JavaScript-333?style=flat&logo=javascript)
+![Node](https://img.shields.io/badge/-NodeJS-333?style=flat&logo=nodejs)
+![Express](https://img.shields.io/badge/-Express-333?style=flat&logo=express) 
+![Mongoose](https://img.shields.io/badge/-Mongoose-333?style=flat&logo=mongoose) 
+![MongoDB](https://img.shields.io/badge/-MongoDB-333?style=flat&logo=mongodb) 
 ![HTML5](https://img.shields.io/badge/-HTML5-333?style=flat&logo=html5)
 ![CSS3](https://img.shields.io/badge/-CSS-333?style=flat&logo=css3)
 ![Git](https://img.shields.io/badge/-Git-333?style=flat&logo=git)
