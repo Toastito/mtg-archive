@@ -61,6 +61,8 @@ Used Trello to keep track of the user stories that were being implemented for th
 ![VSCode](https://img.shields.io/badge/-VS_Code-333?style=flat&logo=visualstudio)
 ![Markdown](https://img.shields.io/badge/-Markdown-333?style=flat&logo=markdown)
 ![Figma](https://img.shields.io/badge/Figma-333?style=flat&logo=figma)
+![Heroku](https://img.shields.io/badge/Heroku-333?style=flat&logo=heroku)
+![Trello](https://img.shields.io/badge/Trello-333?style=flat&logo=trello)
 
 # Getting Started
 
