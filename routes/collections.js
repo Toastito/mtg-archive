@@ -5,7 +5,7 @@ const Card = require('../models/card');
 
 router.get('/collections', async (req, res) => {
   console.log(res.locals.user);
-  let collections = await Collection.find({owner: res.locals.user.id});
+  let collections = await Collection.find({owner: res.locals.user.id}).populate('owner');
   console.log(collections);
   res.render('collections/index', { collections });
 });
