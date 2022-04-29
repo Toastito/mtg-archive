@@ -36,6 +36,8 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: var(--color-main-dark);
   color: var(--text-color-main-dark);
+  width: 100%;
+  max-width: 100%;
 }
 
 main {
