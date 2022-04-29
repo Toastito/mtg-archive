@@ -33,10 +33,21 @@ You can see the collections that others have made too so that you can keep an ey
 
 I used figma to quickly sketch up some basic views and wireframes to get a feel of what the application will be like. I went with a mobile first approach to make sure that the experience is enjoyable on smaller screens.
 
-| Login Page | Collection Page | Search Page | My Collections | All Collections |
-|------------ | ------------| ------------| ------------| ------------|
-| <p align="center">Landing Page - iPhone 13 Pro Reference</p> | <p align="center">Landing Page - iPhone 13 Pro Reference</p> | <p align="center">Landing Page - iPhone 13 Pro Reference</p> | <p align="center">Landing Page - iPhone 13 Pro Reference</p> | <p align="center">Landing Page - iPhone 13 Pro Reference</p> |
-| <img src="./public/images/13_Pro_1.png" height="500px">  | <img src="./public/images/13_Pro_2.png" height="500px"> | <img src="./public/images/13_Pro_3.png" height="500px"> | <img src="./public/images/13_Pro_4.png" height="500px"> | <img src="./public/images/13_Pro_5.png" height="500px"> 
+.table-wrapper {
+  overflow-x: scroll;
+}
+
+<div class="table-wrapper" markdown="block">
+
+| View | Image |
+|------------ | ------------|
+| <p align="center">Login Page</p> | <img src="./public/images/13_Pro_1.png" height="500px"> |
+| <p align="center">Collection Page</p> | <img src="./public/images/13_Pro_2.png" height="500px"> |
+| <p align="center">Search Page </p> | <img src="./public/images/13_Pro_3.png" height="500px"> |
+| <p align="center">My Collections</p> | <img src="./public/images/13_Pro_4.png" height="500px"> |
+| <p align="center">All Collections</p> | <img src="./public/images/13_Pro_5.png" height="500px"> |
+
+</div>
 </details>
 
 <details>
