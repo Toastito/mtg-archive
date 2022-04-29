@@ -1,5 +1,4 @@
 const Collection = require('../models/collection');
-const Card = require('../models/card');
 
 module.exports = {
   index,
