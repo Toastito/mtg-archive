@@ -55,10 +55,7 @@ h1, h2, .sidebar__nav a, .sidebar__menu-close-icon {
 
 a {
   text-decoration: none;
-}
-
-a:visited {
-  color: inherit;
+  color: #4F9CFA;
 }
 
 .sidebar__nav {
@@ -97,6 +94,14 @@ a:visited {
   justify-self: flex-start;
 }
 
+.logo-header__logo-link {
+  color: var(--text-color-main-dark);
+}
+
+.logo-header__logo-link:visited  {
+  color: inherit;
+}
+
 .modal {
   display: none;
   position: fixed;
@@ -130,6 +135,18 @@ a:visited {
   top: -15px;
   right: -15px;
   cursor: pointer;
+}
+
+.collections-display {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.collections-display__collection {
+  padding: 1rem;
+  border-radius: 4px;
+  background-color: var(--color-secondary-dark);
 }
 
 .card-display {
