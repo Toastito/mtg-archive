@@ -1,6 +1,6 @@
 require('dotenv').config();
 require('./config/database');
-const fetch = require('node-fetch');
+
 const Card = require('./models/card');
 const User = require('./models/user');
 const Collection = require('./models/collection');
@@ -10,10 +10,10 @@ const Collection = require('./models/collection');
 async function updateCardDatabase(cards) {
   for (const [idx, card] of cards.entries()) {
     console.log(`Card ID: ${card.id}`);
-    let cardDb = await Card.findOne({'cardDetails.id': card.id});
+    let cardDb = await Card.findOne({ 'cardDetails.id': card.id });
     if (cardDb) continue;
     console.log('Creating Card');
-    await Card.create({cardDetails: card});
+    await Card.create({ cardDetails: card });
     console.log(`Created Card: ${idx}`);
   }
 }
@@ -31,7 +31,7 @@ function deleteCollection() {
 }
 
 async function resetUsersInCard(id) {
-  let card = await Card.findOne({'cardDetails.id': id});
+  let card = await Card.findOne({ 'cardDetails.id': id });
   console.log(card);
   card.user = [];
   await card.save();
