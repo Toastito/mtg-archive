@@ -49,12 +49,12 @@
             <p><%= card.card.cardDetails.set_name %></p>
             <% if (owner) { %>
               <section class="edit-form">
-                <form id="update-<%= card.card.cardDetails.id %>" action="/cards/<%= card._id %>?_method=PUT" method="POST">
+                <form class="update-form" id="update-<%= card.card.cardDetails.id %>" action="/cards/<%= card._id %>?_method=PUT" method="POST">
                   <input type="number" name="quantity" value="<%= card.quantity %>">
                   <input type="text" name="cardId" value="<%= card.card.cardDetails.id %>" class="hide">
                 </form>
                 <button type="submit" form="update-<%= card.card.cardDetails.id %>">Update</button>
-                <form action="/cards/<%= card._id %>?_method=DELETE" method="POST">
+                <form class="update-form" action="/cards/<%= card._id %>?_method=DELETE" method="POST">
                   <input type="text" name="quantity" value="0" class="hide">
                   <input type="text" name="cardId" value="<%= card.card.cardDetails.id %>" class="hide">
                   <button type="submit">Delete</button>
