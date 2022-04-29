@@ -50,7 +50,7 @@ Used Trello to keep track of the user stories that were being implemented for th
 
 ## :computer: Technologies Used
 ![JavaScript](https://img.shields.io/badge/-JavaScript-333?style=flat&logo=javascript)
-![Node](https://img.shields.io/badge/-NodeJS-333?style=flat&logo=nodejs)
+![Node](https://img.shields.io/badge/-Node.JS-333?style=flat&logo=node.js)
 ![Express](https://img.shields.io/badge/-Express-333?style=flat&logo=express) 
 ![Mongoose](https://img.shields.io/badge/-Mongoose-333?style=flat&logo=mongoose) 
 ![MongoDB](https://img.shields.io/badge/-MongoDB-333?style=flat&logo=mongodb) 
