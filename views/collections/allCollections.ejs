@@ -2,13 +2,15 @@
 
 <main>
   <h1>Collections</h1>
-  <section>
+  <section class="collections-display">
     <% collections.forEach(collection => { %>
-      <article class="collection-overview">
-        <a href="/collections/<%= collection._id %>"><%= collection.collectionName %></a>
+      <article class="collections-display__collection">
+        <a href="/collections/<%= collection._id %> ">
+          <h2><%= collection.collectionName %> </2>
+        </a>
         <p><%= collection.owner.name %></p>
       </article>
-    <% }); %>
+    <% }) %>
   </section>
 </main>
 
