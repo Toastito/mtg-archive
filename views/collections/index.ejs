@@ -1,21 +1,23 @@
 <%- include('../partials/header') %>
 <main>
-  <h2>Collections</h2>
-  <button id="new-collection-btn">New Collection</button>
+  <section class="collection-info">
+    <h1>My Collections</h1>
+    <button id="new-collection-btn">New Collection</button>
+  </section>
   <div class="modal">
     <form action="/collections" method="POST" class="modal-form">
       <div class="fa-solid fa-x modal-close"></div>
-      <label for="collectionName">Collection Name</label>
-      <input type="text" name="collectionName" required>
-      <button type="submit">Create Collection</button>
+      <label for="collectionName" class="hide">Collection Name</label>
+      <input type="text" name="collectionName" placeholder="Collection Name" required>
+      <button type="submit" class="hide">Create Collection</button>
     </form>
   </div>
   <section class="collections-display">
     <% collections.forEach(collection => { %>
       <article class="collections-display__collection">
-        <div>
+        <!-- <div>
           <img src="" alt="">
-        </div>
+        </div> -->
         <a href="/collections/<%= collection._id %> ">
           <h2><%= collection.collectionName %> </2>
         </a>
