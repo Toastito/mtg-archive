@@ -28,7 +28,7 @@
                 <p class="text-secondary"><%= card.set_name %></p>
               </section>
               <p class="card-price"><%= card.prices.usd ? `Price: $${card.prices.usd}` : 'Price Unavailable' %> </p>
-              <% if (collections) { %>
+              <% if (collections && collections.length > 0) { %>
                 <form class="edit-form" action="/cards" method="POST" class="collection-adder">
                   <label for="collections" class="hide">Collections</label>
                   <select name="collection">
@@ -43,7 +43,9 @@
                     <button type="submit">Add to Collection</button>
                   </section>
                 </form>
-              <% } %>
+              <% } else if (collections.length === 0) { %>
+                <p class="text-secondary">Please Make A Collection to Add Cards</p>
+              <% } %> 
             </section>
           </article>
         <% } else {%>
@@ -59,7 +61,7 @@
                 <p class="text-secondary"><%= card.set_name %></p>
               </section>
               <p class="card-price"><%= card.prices.usd ? `Price: $${card.prices.usd}` : 'Price Unavailable' %> </p>
-              <% if (collections) { %>
+              <% if (collections && collections.length > 0) { %>
                 <form class="edit-form" action="/cards" method="POST" class="collection-adder">
                   <label for="collections" class="hide">Collections</label>
                   <select name="collection">
@@ -74,7 +76,9 @@
                     <button type="submit">Add</button>
                   </section>
                 </form>
-              <% } %>
+              <% } else if (collections.length === 0) { %>
+                <p class="text-secondary">Please Make A Collection to Add Cards</p>
+              <% } %> 
             </section>
           </article>
         <% } %> 
