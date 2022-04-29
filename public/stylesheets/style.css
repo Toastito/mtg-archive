@@ -44,12 +44,31 @@ main {
   padding: 1rem;
 }
 
+h1 {
+  font-size: 2rem;
+}
+
+.collection-controls h1 {
+  margin-bottom: 0;
+}
+
 h1,
 h2,
 .sidebar__nav a,
-.sidebar__menu-close-icon,
-.collection-info {
+.sidebar__menu-close-icon {
   margin-bottom: 1rem;
+}
+
+.collection-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.delete-button {
+  background-color: #EA384C;
+  color: var(--text-color-main-dark);
 }
 
 .sidebar {
