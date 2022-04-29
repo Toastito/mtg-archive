@@ -43,7 +43,7 @@
                     <button type="submit">Add to Collection</button>
                   </section>
                 </form>
-              <% } else if (collections.length === 0) { %>
+              <% } else if (collections && collections.length === 0) { %>
                 <p class="text-secondary">Please Make A Collection to Add Cards</p>
               <% } %> 
             </section>
@@ -76,7 +76,7 @@
                     <button type="submit">Add</button>
                   </section>
                 </form>
-              <% } else if (collections.length === 0) { %>
+              <% } else if (collections && collections.length === 0) { %>
                 <p class="text-secondary">Please Make A Collection to Add Cards</p>
               <% } %> 
             </section>
