@@ -27,11 +27,11 @@ async function show(req, res) {
 
 async function create(req, res) {
   req.body.owner = res.locals.user.id;
-  let collection = await Collection.create(req.body);
+  await Collection.create(req.body);
   res.redirect('/collections');
 }
 
 async function deleteCollection(req, res) {
-  await Collection.findByIdAndDelete(req.params.id);
-  res.redirect('/collections')
+  await Collection.findOneAndDelete({_id: req.params.id, owner: res.locals.user.id});
+  res.redirect('/collections');
 }

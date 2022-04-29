@@ -22,7 +22,7 @@ async function index(req, res) {
 }
 
 async function create(req, res) {
-  let collection = await Collection.findById(req.body.collection).populate('owner').populate('cards.card').exec();
+  let collection = await Collection.findOne({ _id: req.body.collection, owner: res.locals.user.id }).populate('owner').populate('cards.card').exec();
   if (!collection) res.redirect('/cards/search');
 
   let cardIdx = collection.cards.findIndex((card) => card.card.cardDetails.id === req.body.cardId);
@@ -39,14 +39,14 @@ async function create(req, res) {
 }
 
 async function update(req, res) {
-  let collection = await Collection.findOne({ 'cards._id': req.params.id });
+  let collection = await Collection.findOne({ owner: res.locals.user.id, 'cards._id': req.params.id });
   await collection.cards.id(req.params.id).set({ quantity: req.body.quantity });
   await collection.save();
   res.redirect(`/collections/${collection._id}`);
 }
 
 async function deleteCard(req, res) {
-  let collection = await Collection.findOne({ 'cards._id': req.params.id });
+  let collection = await Collection.findOne({ owner: res.locals.user.id, 'cards._id': req.params.id });
   await collection.cards.remove(req.params.id);
   await collection.save();
   res.redirect(`/collections/${collection._id}`);
