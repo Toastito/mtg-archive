@@ -2,9 +2,9 @@
 
 
 <div align="center">
-    <img src="./images/game.png">
+    <img src="./public/images/archival.png">
     <h1>Archival</h1>
-    <h3><a href="https://archival-mtg.herokuapp.com/" target="_blank">Visit</a></h3>
+    <h3><a href="https://archival-mtg.herokuapp.com/" target="_blank">Visit Archival</a></h3>
     <h3>Roger Davila</h3>
         <a href="https://www.linkedin.com/in/roger-davila/" target="_blank">
       <img src="https://img.shields.io/badge/-linkedin.com/in/rogerdavila-blue?style=flat&``logo=Linkedin&logoColor=white">
@@ -33,9 +33,10 @@ You can see the collections that others have made too so that you can keep an ey
 
 I used figma to quickly sketch up some basic views and wireframes to get a feel of what the application will be like. I went with a mobile first approach to make sure that the experience is enjoyable on smaller screens.
 
-| Landing Page | Wireframe |
-|------------ | ------------|
-| <p align="center">Landing Page - iPhone 11 Pro Reference</p> | <img src="./planning/wireframe_mobile.png" height="500px"> |
+| Login Page | Collection Page | Search Page | My Collections | All Collections |
+|------------ | ------------| ------------| ------------| ------------|
+| <p align="center">Landing Page - iPhone 13 Pro Reference</p> | <p align="center">Landing Page - iPhone 13 Pro Reference</p> | <p align="center">Landing Page - iPhone 13 Pro Reference</p> | <p align="center">Landing Page - iPhone 13 Pro Reference</p> | <p align="center">Landing Page - iPhone 13 Pro Reference</p> |
+| <img src="./public/images/13_Pro_1.png" height="500px">  | <img src="./public/images/13_Pro_2.png" height="500px"> | <img src="./public/images/13_Pro_3.png" height="500px"> | <img src="./public/images/13_Pro_4.png" height="500px"> | <img src="./public/images/13_Pro_5.png" height="500px"> 
 </details>
 
 ## :computer: Technologies Used
