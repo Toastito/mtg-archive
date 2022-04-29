@@ -4,7 +4,8 @@ module.exports = {
   index,
   allCollections,
   show,
-  create
+  create,
+  delete: deleteCollection
 }
 
 async function index(req, res) {
@@ -28,4 +29,9 @@ async function create(req, res) {
   req.body.owner = res.locals.user.id;
   let collection = await Collection.create(req.body);
   res.redirect('/collections');
+}
+
+async function deleteCollection(req, res) {
+  await Collection.findByIdAndDelete(req.params.id);
+  res.redirect('/collections')
 }
