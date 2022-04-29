@@ -17,11 +17,6 @@ const collectionSchema = new Schema({
   },
   owner: {type: Schema.Types.ObjectId, ref: 'User'},
   cards: [collectionCardSchema],
-  // collectionValue: function () {
-  //   this.cards.reduce((sum, card) => {
-  //     sum += parseFloat(card.prices.usd || 0);
-  //   }, 0)
-  // }
 }, {
   timestamps: true
 });
