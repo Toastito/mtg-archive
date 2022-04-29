@@ -1,9 +1,14 @@
 <%- include('../partials/header') %>
 
 <main>
-  <section class="collection-info">
-    <h1 class="collection-name"><%= collection.collectionName %></h1>
-    <p class="collection-author">By <%= collection.owner.name %></p>
+  <section class="collection-controls">
+    <section class="collection-info">
+      <h1 class="collection-name"><%= collection.collectionName %></h1>
+      <p class="collection-author">By <%= collection.owner.name %></p>
+    </section>
+    <form action="/collections/<%= collection._id %>?_method=DELETE" method="post">
+      <button class="delete-button">Delete Collection</button>
+    </form>
   </section>
   <section class="card-display">
     <% collection.cards.forEach(card => { %>
@@ -37,7 +42,7 @@
                   <form action="/cards/<%= card._id %>?_method=DELETE" method="POST">
                     <input type="text" name="quantity" value="0" class="hide">
                     <input type="text" name="cardId" value="<%= card.card.cardDetails.id %>" class="hide">
-                    <button type="submit">Delete</button>
+                    <button class="delete-button" type="submit">Delete</button>
                   </form>
                 </section>
               </section>
@@ -68,7 +73,7 @@
                   <form action="/cards/<%= card._id %>?_method=DELETE" method="POST">
                     <input type="text" name="quantity" value="0" class="hide">
                     <input type="text" name="cardId" value="<%= card.card.cardDetails.id %>" class="hide">
-                    <button type="submit">Delete</button>
+                    <button class="delete-button" type="submit">Delete</button>
                   </form>
                 </section>
               </section>

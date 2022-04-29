@@ -1,7 +1,9 @@
 <%- include('../partials/header') %>
 <main>
-  <section class="collection-info">
-    <h1>My Collections</h1>
+  <section class="collection-controls">
+    <section class="collection-info">
+      <h1>My Collections</h1>
+    </section>
     <button id="new-collection-btn">New Collection</button>
   </section>
   <div class="modal">
@@ -15,9 +17,6 @@
   <section class="collections-display">
     <% collections.forEach(collection => { %>
       <article class="collections-display__collection">
-        <!-- <div>
-          <img src="" alt="">
-        </div> -->
         <a href="/collections/<%= collection._id %> ">
           <h2><%= collection.collectionName %> </2>
         </a>
@@ -25,10 +24,6 @@
       </article>
     <% }) %>
   </section>
-  <!-- <form action="/cards/search" method="GET">
-    <label for="q" class="hide">Search for cards</label>
-    <button type="submit">Add Cards</button>
-  </form> -->
 </main>
 <script>
   const newCollectionBtn = document.querySelector('#new-collection-btn');
