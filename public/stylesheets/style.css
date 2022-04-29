@@ -194,6 +194,26 @@ a:visited {
   transform: rotateY(180deg);
 }
 
+.edit-form {
+  display: flex;
+}
+
+.update-form {
+  display: flex;
+}
+
+.edit-form {
+  gap: 1rem;
+}
+
+.edit-form form, .edit-form button {
+  flex: 1 1 0;
+}
+
+.edit-form input {
+  height: 100%;
+}
+
 .login {
   display: flex;
   justify-content: center;
