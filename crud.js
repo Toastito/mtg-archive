@@ -29,3 +29,10 @@ function deleteUsers() {
 function deleteCollection() {
   Collection.deleteMany({}).then(results => console.log(results));
 }
+
+async function resetUsersInCard(id) {
+  let card = await Card.findOne({'cardDetails.id': id});
+  console.log(card);
+  card.user = [];
+  await card.save();
+}

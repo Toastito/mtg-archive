@@ -7,7 +7,7 @@ const collectionCardSchema = new Schema({
     min: 1,
     default: 1
   },
-  card: {type: Schema.Types.ObjectId, ref: 'Card'}
+  card: { type: Schema.Types.ObjectId, ref: 'Card' }
 });
 
 const collectionSchema = new Schema({
@@ -15,7 +15,7 @@ const collectionSchema = new Schema({
     type: String,
     required: true
   },
-  owner: {type: Schema.Types.ObjectId, ref: 'User'},
+  owner: { type: Schema.Types.ObjectId, ref: 'User' },
   cards: [collectionCardSchema],
 }, {
   timestamps: true
