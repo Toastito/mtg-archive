@@ -1,8 +1,10 @@
 <%- include('../partials/header') %>
 
 <main>
-  <h1><%= collection.collectionName %></h1>
-  <p>By <%= collection.owner.name %></p>
+  <section class="collection-info">
+    <h1 class="collection-name"><%= collection.collectionName %></h1>
+    <p class="collection-author">By <%= collection.owner.name %></p>
+  </section>
   <section class="card-display">
     <% collection.cards.forEach(card => { %>
       <% if ((card.card.cardDetails.layout === 'art_series' || card.card.cardDetails.layout === 'modal_dfc' || card.card.cardDetails.layout === 'transform') && card.card.cardDetails.image_status !== 'missing') {%>
@@ -19,8 +21,11 @@
             </div>
           </div>
           <section>
-            <h3><%= card.card.cardDetails.name %></h3>
-            <p><%= card.card.cardDetails.set_name %> </p>
+            <section class="name-set">
+              <h3><%= card.card.cardDetails.name %></h3>
+              <p class="text-secondary"><%= card.card.cardDetails.set_name %> </p>
+            </section>
+            <p class="card-price"><%= card.card.cardDetails.prices.usd ? `$${card.card.cardDetails.prices.usd}` : 'Price Unavailable' %> </p>
             <% if (owner) { %>
               <section class="edit-form">
                 <form id="update-<%= card.card.cardDetails.id %>" action="/cards/<%= card._id %>?_method=PUT" method="POST">
@@ -45,8 +50,11 @@
             </a>
           </div>
           <section>
-            <h3><%= card.card.cardDetails.name %></h3>
-            <p><%= card.card.cardDetails.set_name %></p>
+            <section class="name-set">
+              <h3><%= card.card.cardDetails.name %></h3>
+              <p class="text-secondary"><%= card.card.cardDetails.set_name %> </p>
+            </section>
+            <p class="card-price"><%= card.card.cardDetails.prices.usd ? `$${card.card.cardDetails.prices.usd}` : 'Price Unavailable' %> </p>
             <% if (owner) { %>
               <section class="edit-form">
                 <form class="update-form" id="update-<%= card.card.cardDetails.id %>" action="/cards/<%= card._id %>?_method=PUT" method="POST">
