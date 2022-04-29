@@ -22,14 +22,14 @@
                 <% }); %>
               </div>
             </div>
-            <section>
+            <section class="card-details">
               <section class="name-set">
                 <h3 class="card-name"><%= card.name %></h3>
                 <p class="text-secondary"><%= card.set_name %></p>
               </section>
               <p class="card-price"><%= card.prices.usd ? `Price: $${card.prices.usd}` : 'Price Unavailable' %> </p>
               <% if (collections) { %>
-                <form action="/cards" method="POST" class="collection-adder">
+                <form class="edit-form" action="/cards" method="POST" class="collection-adder">
                   <label for="collections" class="hide">Collections</label>
                   <select name="collection">
                     <% collections.forEach(collection => { %>
@@ -39,7 +39,9 @@
                   <input type="text" name="cardId" value="<%= card.id %>" class="hide">
                   <label for="quantity" class="hide">Quantity</label>
                   <input type="number" value="1" name="quantity">
-                  <button type="submit">Add to Collection</button>
+                  <section class="edit-form-buttons">
+                    <button type="submit">Add to Collection</button>
+                  </section>
                 </form>
               <% } %>
             </section>
@@ -51,14 +53,14 @@
                 <img src="<%= card.image_uris ? card.image_uris.small : '' %>">
               </a>
             </div>
-            <section>
+            <section class="card-details">
               <section class="name-set">
                 <h3 class="card-name"><%= card.name %></h3>
                 <p class="text-secondary"><%= card.set_name %></p>
               </section>
               <p class="card-price"><%= card.prices.usd ? `Price: $${card.prices.usd}` : 'Price Unavailable' %> </p>
               <% if (collections) { %>
-                <form action="/cards" method="POST" class="collection-adder">
+                <form class="edit-form" action="/cards" method="POST" class="collection-adder">
                   <label for="collections" class="hide">Collections</label>
                   <select name="collection">
                     <% collections.forEach(collection => { %>
@@ -68,7 +70,9 @@
                   <input type="text" name="cardId" value="<%= card.id %>" class="hide">
                   <label for="quantity" class="hide">Quantity</label>
                   <input type="number" value="1" name="quantity">
-                  <button type="submit">Add to Collection</button>
+                  <section class="edit-form-buttons">
+                    <button type="submit">Add</button>
+                  </section>
                 </form>
               <% } %>
             </section>
