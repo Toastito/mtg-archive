@@ -10,12 +10,16 @@
       <button type="submit">Create Collection</button>
     </form>
   </div>
-  <section>
+  <section class="collections-display">
     <% collections.forEach(collection => { %>
-      <article>
+      <article class="collections-display__collection">
+        <div>
+          <img src="" alt="">
+        </div>
         <a href="/collections/<%= collection._id %> ">
-          <p><%= collection.collectionName %> </p>
+          <h2><%= collection.collectionName %> </2>
         </a>
+        <p><%= collection.owner.name %></p>
       </article>
     <% }) %>
   </section>
