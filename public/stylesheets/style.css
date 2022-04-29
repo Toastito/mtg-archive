@@ -29,10 +29,12 @@ button {
 }
 
 form, button {
+  max-width: 100%;
   width: 100%;
 }
 
 body {
+  position: relative;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: var(--color-main-dark);
   color: var(--text-color-main-dark);
