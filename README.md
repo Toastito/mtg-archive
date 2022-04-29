@@ -39,6 +39,15 @@ I used figma to quickly sketch up some basic views and wireframes to get a feel 
 | <img src="./public/images/13_Pro_1.png" height="500px">  | <img src="./public/images/13_Pro_2.png" height="500px"> | <img src="./public/images/13_Pro_3.png" height="500px"> | <img src="./public/images/13_Pro_4.png" height="500px"> | <img src="./public/images/13_Pro_5.png" height="500px"> 
 </details>
 
+<details>
+<summary>:white_check_mark: Planning</summary>
+
+Used Trello to keep track of the user stories that were being implemented for this project. Pre-defining what we wanted the user to experience to be allowed the project executions phase to go smoothly.
+
+<img src="./public/images/trello.png">
+</details>
+
+
 ## :computer: Technologies Used
 ![JavaScript](https://img.shields.io/badge/-JavaScript-333?style=flat&logo=javascript)
 ![Node](https://img.shields.io/badge/-NodeJS-333?style=flat&logo=nodejs)
