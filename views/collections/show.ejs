@@ -3,7 +3,69 @@
 <main>
   <h1><%= collection.collectionName %></h1>
   <p>By <%= collection.owner.name %></p>
-  <p><%= collection.cards %></p>
+  <section class="card-display">
+    <% collection.cards.forEach(card => { %>
+      <% if ((card.card.cardDetails.layout === 'art_series' || card.card.cardDetails.layout === 'modal_dfc' || card.card.cardDetails.layout === 'transform') && card.card.cardDetails.image_status !== 'missing') {%>
+        <article class="card-display__card">
+          <div class="card-display__card__top-flip">
+            <div class="card-display__card__top-flip__inner">
+              <% card.card.cardDetails.card_faces.forEach((cardFace) => { %>
+                <div class="card-container small">
+                  <a href="<%= card.card.cardDetails.scryfall_uri %>">
+                    <img src="<%= cardFace.image_uris.small %>" alt="<%= cardFace.name %> "></p>
+                  </a>
+                </div>
+              <% }); %>
+            </div>
+          </div>
+          <section>
+            <h3><%= card.card.cardDetails.name %></h3>
+            <p><%= card.card.cardDetails.set_name %> </p>
+            <% if (owner) { %>
+              <section class="edit-form">
+                <form id="update-<%= card.card.cardDetails.id %>" action="/cards/<%= card._id %>?_method=PUT" method="POST">
+                  <input type="number" name="quantity" value="<%= card.quantity %>">
+                  <input type="text" name="cardId" value="<%= card.card.cardDetails.id %>" class="hide">
+                </form>
+                <button type="submit" form="update-<%= card.card.cardDetails.id %>">Update</button>
+                <form action="/cards/<%= card._id %>?_method=DELETE" method="POST">
+                  <input type="text" name="quantity" value="0" class="hide">
+                  <input type="text" name="cardId" value="<%= card.card.cardDetails.id %>" class="hide">
+                  <button type="submit">Delete</button>
+                </form>
+              </section>
+            <% } %>
+          </section>
+        </article>
+      <% } else {%>
+        <article class="card-display__card">
+          <div class="card-container small">
+            <a href="<%= card.card.cardDetails.scryfall_uri %>">
+              <img src="<%= card.card.cardDetails.image_uris ? card.card.cardDetails.image_uris.small : '' %>">
+            </a>
+          </div>
+          <section>
+            <h3><%= card.card.cardDetails.name %></h3>
+            <p><%= card.card.cardDetails.set_name %></p>
+            <% if (owner) { %>
+              <section class="edit-form">
+                <form id="update-<%= card.card.cardDetails.id %>" action="/cards/<%= card._id %>?_method=PUT" method="POST">
+                  <input type="number" name="quantity" value="<%= card.quantity %>">
+                  <input type="text" name="cardId" value="<%= card.card.cardDetails.id %>" class="hide">
+                </form>
+                <button type="submit" form="update-<%= card.card.cardDetails.id %>">Update</button>
+                <form action="/cards/<%= card._id %>?_method=DELETE" method="POST">
+                  <input type="text" name="quantity" value="0" class="hide">
+                  <input type="text" name="cardId" value="<%= card.card.cardDetails.id %>" class="hide">
+                  <button type="submit">Delete</button>
+                </form>
+              </section>
+            <% } %>
+          </section>
+        </article>
+      <% } %> 
+    <% }) %>
+  </section>
 </main>
 
 <%- include('../partials/footer') %> 
