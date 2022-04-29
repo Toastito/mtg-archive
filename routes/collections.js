@@ -17,9 +17,10 @@ router.get('/collections/all', async (req, res) => {
 });
 
 router.get('/collections/:id', async (req, res) => {
-  console.log(req.params.id);
-  let collection = await Collection.findById(req.params.id).populate('owner');
-  res.render('collections/show', { collection }); 
+  let collection = await Collection.findById(req.params.id).populate('owner').populate('cards.card').exec();
+  let owner;
+  if (res.locals.user) owner = collection.owner._id.equals(res.locals.user.id);
+  res.render('collections/show', { collection, owner }); 
 });
 
 router.post('/collections', async (req, res) => {
@@ -29,27 +30,18 @@ router.post('/collections', async (req, res) => {
   res.redirect('/collections');
 });
 
-router.put('/collections', async (req, res) => {
-  let collection = await Collection.findById(req.body.collection);
-  console.log(collection);
-  console.log(req.body);
+router.post('/cards', async (req, res) => {
+  // let collection = await Collection.findById(req.body.collection);
+  let collection = await Collection.findById(req.body.collection).populate('owner').populate('cards.card').exec();
   if (!collection) res.redirect('/cards/search');
-  collection.cards.forEach(async (card, idx) => {
-    await collection.populate(`cards.${idx}.card`);
-  });
-  await collection.save();
   let cardIdx = collection.cards.findIndex((card) => card.card.cardDetails.id === req.body.cardId);
-  console.log(cardIdx);
   // Ternary for collection if card exists
   let collectionCard = await Card.findOne({'cardDetails.id': req.body.cardId});
-  console.log(collectionCard);
   let cardInCollections = collectionCard.user.some((user) => user.equals(res.locals.user.id)); 
   if (cardIdx === -1) {
     collection.cards.push({quantity: parseInt(req.body.quantity), card: collectionCard});
     await collection.save();
   } else if(cardIdx >= 0) {
-    console.log(`The card was found in index : ${cardIdx}`);
-    console.log('Updating the Card Quantity');
     collection.cards[cardIdx].quantity += parseInt(req.body.quantity);
     await collection.save();
   }
@@ -64,6 +56,24 @@ router.put('/collections', async (req, res) => {
   // console.log(card);
   res.redirect('cards/search');
   // res.status(204).send();
+});
+
+router.put('/cards/:id', async(req, res) => {
+  let collection = await Collection.findOne({'cards._id' : req.params.id});
+  await collection.cards.id(req.params.id).set({quantity: req.body.quantity});
+  await collection.save();
+  res.redirect(`/collections/${collection._id}`);
+});
+
+router.delete('/cards/:id', async (req, res) => {
+  let collection = await Collection.findOne({'cards._id' : req.params.id});
+  await collection.cards.remove(req.params.id);
+  await collection.save();
+  res.redirect(`/collections/${collection._id}`);
+});
+
+router.delete('/collections/:id', async (req, res) => {
+
 });
 
 module.exports = router;
