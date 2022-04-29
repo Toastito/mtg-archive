@@ -10,8 +10,6 @@ router.get('/collections/:id', collectionsCtrl.show);
 
 router.post('/collections', collectionsCtrl.create);
 
-router.delete('/collections/:id', async (req, res) => {
-
-});
+router.delete('/collections/:id', collectionsCtrl.delete);
 
 module.exports = router;
