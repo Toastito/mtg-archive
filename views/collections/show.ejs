@@ -6,9 +6,11 @@
       <h1 class="collection-name"><%= collection.collectionName %></h1>
       <p class="collection-author">By <%= collection.owner.name %></p>
     </section>
-    <form action="/collections/<%= collection._id %>?_method=DELETE" method="post">
-      <button class="delete-button">Delete Collection</button>
-    </form>
+    <% if (owner) { %>
+      <form action="/collections/<%= collection._id %>?_method=DELETE" method="post">
+        <button class="delete-button">Delete Collection</button>
+      </form>
+    <% } %>
   </section>
   <section class="card-display">
     <% collection.cards.forEach(card => { %>
