@@ -113,7 +113,8 @@ a {
   font-size: 28px;
 }
 
-.logo-header__menu-open-icon::before, .sidebar__menu-close-icon::before {
+.logo-header__menu-open-icon::before,
+.sidebar__menu-close-icon::before {
   cursor: pointer;
 }
 
@@ -188,10 +189,6 @@ a {
 .card-display__card__top-flip,
 .card-display__card__top-flip__inner {
   border-radius: 10px;
-}
-
-.card-display__card:nth-child(even) {
-  /* text-align: right; */
 }
 
 .card-display__card__top-flip {
