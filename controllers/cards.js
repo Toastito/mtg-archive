@@ -12,7 +12,7 @@ module.exports = {
 async function index(req, res) {
   let results = await fetch(`https://api.scryfall.com/cards/search?q=${req.query.q}`);
   results = await results.json();
-  
+
   let collections;
   if (res.locals.user) {
     collections = await Collection.find({ owner: req.user._id });
@@ -45,7 +45,6 @@ async function update(req, res) {
 }
 
 async function deleteCard(req, res) {
-
   let collection = await Collection.findOne({ owner: req.user._id, 'cards._id': req.params.id });
   await collection.cards.remove(req.params.id);
   await collection.save();
