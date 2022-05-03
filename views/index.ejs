@@ -2,9 +2,19 @@
 <main>
   <h1>Archival</h1>
   <h2>Recent Sets</h2>
+  <section>
+    <% recentSets.forEach(set => { %>
+      <a class="set-name">
+        <div>
+          <svg data-src="<%= set.icon_svg_uri %>"></svg>
+        </div>
+        <p><%= set.name %></p>
+      </a>
+    <% }); %>
+  </section>
   <h2>Decks</h2>
   <a href="/cards/search">
     <h2>Search for a Card</h2>
   </a>
 </main>
-<%- include('./partials/footer') %> 
+<%- include('./partials/footer') %>
