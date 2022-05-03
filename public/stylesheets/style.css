@@ -302,6 +302,27 @@ a {
   background-color: var(--color-secondary-dark);
 }
 
+svg {
+  width: 30px;
+  height: 30px;
+}
+
+svg path {
+  fill: var(--text-color-main-dark);
+}
+
+.set-name {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  gap: 0.5rem;
+  border: 1px solid var(--color-secondary-dark);
+}
+
+.set-name:not(:last-child) {
+  border-bottom: 0;
+}
+
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
