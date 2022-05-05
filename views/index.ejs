@@ -12,7 +12,14 @@
       </a>
     <% }); %>
   </section>
-  <h2>Decks</h2>
+  <section>
+    <h2>Recent Collections</h2>
+    <section>
+      <% recentCollections.forEach(collection => { %>
+        <p><%= collection.collectionName %></p>
+      <% }) %>
+    </section>
+  </section>
   <a href="/cards/search">
     <h2>Search for a Card</h2>
   </a>
