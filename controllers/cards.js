@@ -10,7 +10,7 @@ module.exports = {
 }
 
 async function index(req, res) {
-  let results = await fetch(`https://api.scryfall.com/cards/search?q=${req.query.q}`);
+  let results = await fetch(`https://api.scryfall.com/cards/search?q=${req.query.q}&unique=prints`);
   results = await results.json();
 
   let collections;
