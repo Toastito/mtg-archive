@@ -5,7 +5,7 @@
   <section class="collections-display">
     <% collections.forEach(collection => { %>
       <article class="collections-display__collection">
-        <img src="https://c1.scryfall.com/file/scryfall-cards/art_crop/front/a/4/a457f404-ddf1-40fa-b0f0-23c8598533f4.jpg?1645328634" alt="">
+        <img src="<%= collection.cards.length ? collection.cards[0].card.cardDetails.image_uris.art_crop : '' %>" alt="">
         <section class="collections-display__collection__description">
           <a href="/collections/<%= collection._id %> ">
             <h3 class="collection-name"><%= collection.collectionName %> </h3>
