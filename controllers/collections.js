@@ -14,7 +14,7 @@ async function index(req, res) {
 }
 
 async function allCollections(req, res) {
-  let collections = await Collection.find({}).populate('owner');
+  let collections = await Collection.find({}).populate('owner').populate('cards.card').exec();
   res.render('collections/allCollections', { collections });
 }
 
