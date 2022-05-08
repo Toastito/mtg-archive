@@ -1,8 +1,13 @@
 <%- include('./partials/header') %> 
 <main>
   <h1>Archival</h1>
+  <form action="/cards/search" method="GET" class="search-form">
+    <label for="q" class="hide">Search for cards</label>
+    <input type="text" id="search-bar" name="q" placeholder="Search for cards...">
+    <button type="submit" class="hide">Find Cards</button>
+  </form>
   <h2>Recent Sets</h2>
-  <section>
+  <section class="recent-sets">
     <% recentSets.forEach(set => { %>
       <a class="set-name" href="<%= set.scryfall_uri %>">
         <div>
@@ -34,8 +39,5 @@
       <% }) %>
     </section>
   </section>
-  <a href="/cards/search">
-    <h2>Search for a Card</h2>
-  </a>
 </main>
 <%- include('./partials/footer') %>
