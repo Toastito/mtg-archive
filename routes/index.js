@@ -8,7 +8,7 @@ const Collection = require('../models/collection');
 /* GET home page. */
 router.get('/', async (req, res, next) => {
   let recentSets = await fetch(`${rootUrl}/sets?set_type=expansion`);
-  let recentCollections = await Collection.find().sort({_id: -1}).limit(10);
+  let recentCollections = await Collection.find().sort({_id: -1}).limit(10).populate('owner').populate('cards.card').exec();
   recentSets = await recentSets.json();
   recentSets = recentSets.data.filter((set) => {
     return (set.set_type === 'expansion' || set.set_type === 'funny' || set.set_type === 'masters') && ((new Date().getFullYear() - 1).toString() <= set.released_at && !set.name.includes('Minigames'));
