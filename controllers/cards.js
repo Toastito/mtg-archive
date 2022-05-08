@@ -34,8 +34,7 @@ async function create(req, res) {
     collection.cards[cardIdx].quantity += parseInt(req.body.quantity);
     await collection.save();
   }
-  res.status(204).send();
-  // res.redirect('cards/search');
+  res.redirect(`/collections/${req.body.collection}`);
 }
 
 async function update(req, res) {
