@@ -17,10 +17,19 @@
   <section class="collections-display">
     <% collections.forEach(collection => { %>
       <article class="collections-display__collection">
-        <a href="/collections/<%= collection._id %> ">
-          <h2><%= collection.collectionName %> </2>
-        </a>
-        <p><%= collection.owner.name %></p>
+        <% if (!collection.cards.length) { %>
+          <img src="https://i.imgur.com/semSZjc.png" alt="">
+        <% } else if (collection.cards.length && collection.cards[0].card.cardDetails.image_uris) { %>
+          <img src="<%= collection.cards[0].card.cardDetails.image_uris.art_crop %>" alt="">
+        <% } else if (collection.cards[0].card.cardDetails.card_faces) { %>
+          <img src="<%= collection.cards[0].card.cardDetails.card_faces[0].image_uris.art_crop%>" alt="">
+        <% } %>
+        <section class="collections-display__collection__description">
+          <a href="/collections/<%= collection._id %> ">
+            <h3 class="collection-name"><%= collection.collectionName %> </h3>
+          </a>
+          <p class="collection-owner"><%= collection.owner.name %></p>
+        </section>
       </article>
     <% }) %>
   </section>
