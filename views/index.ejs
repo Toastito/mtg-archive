@@ -4,7 +4,7 @@
   <h2>Recent Sets</h2>
   <section>
     <% recentSets.forEach(set => { %>
-      <a class="set-name">
+      <a class="set-name" href="<%= set.scryfall_uri %>">
         <div>
           <svg data-src="<%= set.icon_svg_uri %>"></svg>
         </div>
@@ -14,9 +14,23 @@
   </section>
   <section>
     <h2>Recent Collections</h2>
-    <section>
+    <section class="collections-display-home">
       <% recentCollections.forEach(collection => { %>
-        <p><%= collection.collectionName %></p>
+        <article class="collections-display__collection">
+          <% if (!collection.cards.length) { %>
+            <img src="https://i.imgur.com/semSZjc.png" alt="">
+          <% } else if (collection.cards.length && collection.cards[0].card.cardDetails.image_uris) { %>
+            <img src="<%= collection.cards[0].card.cardDetails.image_uris.art_crop %>" alt="">
+          <% } else if (collection.cards[0].card.cardDetails.card_faces) { %>
+            <img src="<%= collection.cards[0].card.cardDetails.card_faces[0].image_uris.art_crop%>" alt="">
+          <% } %>
+          <section class="collections-display__collection__description">
+            <a href="/collections/<%= collection._id %> ">
+              <h3 class="collection-name"><%= collection.collectionName %> </h3>
+            </a>
+            <p class="collection-owner"><%= collection.owner.name %></p>
+          </section>
+        </article>
       <% }) %>
     </section>
   </section>
