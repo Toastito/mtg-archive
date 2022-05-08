@@ -9,7 +9,7 @@ module.exports = {
 }
 
 async function index(req, res) {
-  let collections = await Collection.find({ owner: req.user._id }).populate('owner');
+  let collections = await Collection.find({ owner: req.user._id }).populate('owner').populate('cards.card').exec();
   res.render('collections/index', { collections });
 }
 
