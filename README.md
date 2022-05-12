@@ -1,4 +1,4 @@
-# MTG Archive
+# Archival
 
 
 <div align="center">
